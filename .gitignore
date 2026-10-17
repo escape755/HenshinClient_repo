@@ -1,7 +1,2 @@
-.gradle/
-build/
-local.properties
-*.log
-*.apk
-.idea/
-*.iml
+*/build/
+**/target/
