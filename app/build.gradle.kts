@@ -19,6 +19,15 @@ android {
         versionName = "0.1.0"
     }
 
+    packaging {
+        resources {
+            // Varios jars de netty traen el mismo índice; con uno basta.
+            pickFirsts += "META-INF/INDEX.LIST"
+            pickFirsts += "META-INF/io.netty.versions.properties"
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
+
     buildFeatures {
         compose = true
     }
