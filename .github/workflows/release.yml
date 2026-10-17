@@ -29,6 +29,11 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Install NDK and SDK components
+        run: |
+          yes | sdkmanager --licenses > /dev/null
+          sdkmanager "ndk;27.2.12479018" "platforms;android-36" "build-tools;36.0.0"
+
       - name: Cache Gradle dependencies
         uses: actions/cache@v4
         with:
