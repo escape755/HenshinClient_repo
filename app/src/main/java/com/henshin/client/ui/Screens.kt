@@ -64,6 +64,24 @@ fun HomeScreen() {
             StatRow("Minecraft", "No instalado")
             StatRow("Versión", "0.1.0")
         }
+        HenshinCard(title = "Relay (prueba de conexión)") {
+            Text(
+                "Abre el puerto 19132 para confirmar que tu juego llega a Henshin. En Minecraft agrega el servidor 127.0.0.1 con el puerto 19132.",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Spacer(Modifier.height(12.dp))
+            Button(onClick = { com.henshin.client.relay.RelayController.toggle() }, modifier = Modifier.fillMaxWidth()) {
+                Text(if (com.henshin.client.relay.RelayController.isRunning) "Detener relay" else "Iniciar relay")
+            }
+            Spacer(Modifier.height(12.dp))
+            com.henshin.client.relay.RelayController.logLines.take(10).forEach {
+                Text(it, color = MaterialTheme.colorScheme.onSurface, style = MaterialTheme.typography.bodySmall)
+            }
+            if (com.henshin.client.relay.RelayController.logLines.isEmpty()) {
+                Text("Sin eventos todavía.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
+            }
+        }
         HenshinCard(title = "Jugar") {
             Text(
                 "La instalación y el lanzamiento del juego todavía no están disponibles.",
