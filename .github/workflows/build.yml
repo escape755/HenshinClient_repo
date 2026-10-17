@@ -20,7 +20,19 @@ jobs:
         run: chmod +x gradlew
 
       - name: Compilar APK debug
+        id: build
         run: ./gradlew assembleDebug
+
+      - name: Resumen de errores
+        if: failure()
+        run: |
+          {
+            echo "## Errores de compilación"
+            echo ""
+            echo '```'
+            grep -E "^e: |What went wrong|FAILED" build_log.txt 2>/dev/null || echo "Revisa el log del paso 'Compilar APK debug'."
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/upload-artifact@v4
         with:
