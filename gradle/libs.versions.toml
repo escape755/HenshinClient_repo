@@ -2,6 +2,7 @@
 # Licensed under the Apache License, Version 2.0. See LICENSE.
 
 [versions]
+bedrockProtocol = "1.26.40-R1"
 agp = "8.13.0"
 kotlin = "2.2.20"
 coreKtx = "1.17.0"
@@ -9,6 +10,7 @@ activityCompose = "1.11.0"
 composeBom = "2025.09.00"
 
 [libraries]
+bedrock-connection = { group = "org.allaymc.protocol", name = "bedrock-connection", version.ref = "bedrockProtocol" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }

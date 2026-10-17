@@ -2,3 +2,7 @@ Henshin Client
 Copyright 2026 ESC5P4/Kauri
 
 This product includes software developed by ESC5P4/Kauri.
+
+Dependencias de terceros (Apache License 2.0):
+- Bedrock protocol: AllayMC/Protocol (org.allaymc.protocol:bedrock-connection), basado en CloudburstMC/Protocol.
+  https://github.com/AllayMC/Protocol  |  https://github.com/CloudburstMC/Protocol

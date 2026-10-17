@@ -5,7 +5,9 @@ package com.henshin.client.ui
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,6 +22,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.henshin.client.R
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -43,7 +50,15 @@ fun HomeScreen() {
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text("Henshin Client", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onBackground)
+        Image(
+            painter = painterResource(R.drawable.henshin_banner),
+            contentDescription = "Henshin Client",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .clip(RoundedCornerShape(24.dp))
+        )
         HenshinCard(title = "Estado") {
             StatRow("Estado", "Listo")
             StatRow("Minecraft", "No instalado")
@@ -157,7 +172,7 @@ fun SettingsScreen(prefs: Prefs) {
                     Text("Tema AMOLED", color = MaterialTheme.colorScheme.onSurface)
                     Text("Fondo negro puro", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
                 }
-                Switch(checked = prefs.amoled, onCheckedChange = { prefs.changeAmoled(it) })
+                Switch(checked = prefs.amoled, onCheckedChange = { prefs.setAmoled(it) })
             }
             Spacer(Modifier.height(16.dp))
             Text("Color de acento", color = MaterialTheme.colorScheme.onSurface)
@@ -181,7 +196,7 @@ fun SettingsScreen(prefs: Prefs) {
                     Text("Mostrar FPS", color = MaterialTheme.colorScheme.onSurface)
                     Text("Cuadros por segundo de Henshin", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
                 }
-                Switch(checked = prefs.showFps, onCheckedChange = { prefs.changeShowFps(it) })
+                Switch(checked = prefs.showFps, onCheckedChange = { prefs.setShowFps(it) })
             }
         }
 

@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 
 /** Colores de acento que puede elegir el usuario. */
 val Accents: List<Pair<String, Color>> = listOf(
+    "Carmesí" to Color(0xFFE0294F),
     "Plata" to Color(0xFFC0C6CF),
     "Azul" to Color(0xFF6FA8FF),
     "Morado" to Color(0xFF9B6DFF),
