@@ -23,7 +23,7 @@ class Prefs(context: Context) {
     var showFps by mutableStateOf(sp.getBoolean(KEY_FPS, false))
         private set
 
-    fun setAmoled(value: Boolean) {
+    fun changeAmoled(value: Boolean) {
         amoled = value
         sp.edit().putBoolean(KEY_AMOLED, value).apply()
     }
@@ -33,7 +33,7 @@ class Prefs(context: Context) {
         sp.edit().putInt(KEY_ACCENT, accentIndex).apply()
     }
 
-    fun setShowFps(value: Boolean) {
+    fun changeShowFps(value: Boolean) {
         showFps = value
         sp.edit().putBoolean(KEY_FPS, value).apply()
     }
@@ -52,9 +52,9 @@ class Prefs(context: Context) {
         return try {
             val obj = JSONObject(text)
             if (obj.optString("app") != "HenshinClient") return false
-            setAmoled(obj.getBoolean("amoled"))
+            changeAmoled(obj.getBoolean("amoled"))
             setAccent(obj.getInt("accent"))
-            setShowFps(obj.getBoolean("fps"))
+            changeShowFps(obj.getBoolean("fps"))
             true
         } catch (e: Exception) {
             false

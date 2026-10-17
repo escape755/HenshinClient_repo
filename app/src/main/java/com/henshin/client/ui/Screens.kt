@@ -157,7 +157,7 @@ fun SettingsScreen(prefs: Prefs) {
                     Text("Tema AMOLED", color = MaterialTheme.colorScheme.onSurface)
                     Text("Fondo negro puro", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
                 }
-                Switch(checked = prefs.amoled, onCheckedChange = { prefs.setAmoled(it) })
+                Switch(checked = prefs.amoled, onCheckedChange = { prefs.changeAmoled(it) })
             }
             Spacer(Modifier.height(16.dp))
             Text("Color de acento", color = MaterialTheme.colorScheme.onSurface)
@@ -181,7 +181,7 @@ fun SettingsScreen(prefs: Prefs) {
                     Text("Mostrar FPS", color = MaterialTheme.colorScheme.onSurface)
                     Text("Cuadros por segundo de Henshin", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall)
                 }
-                Switch(checked = prefs.showFps, onCheckedChange = { prefs.setShowFps(it) })
+                Switch(checked = prefs.showFps, onCheckedChange = { prefs.changeShowFps(it) })
             }
         }
 
